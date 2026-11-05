@@ -1,0 +1,67 @@
+id: https://example.org/cms-policy
+name: cms_policy
+description: Minimal LinkML schema for CMS NCD/LCD Policy-as-Code pilot
+
+prefixes:
+  cms: https://example.org/cms-policy/
+  linkml: https://w3id.org/linkml/
+
+imports:
+  - linkml:types
+
+classes:
+  Policy:
+    description: NCD or LCD policy
+    attributes:
+      id:
+        identifier: true
+        range: string
+      title:
+        range: string
+      type:
+        range: PolicyType
+      effective_from:
+        range: date
+      effective_to:
+        range: date
+      jurisdiction:
+        range: string
+      source_uri:
+        range: string
+
+  ProcedureCode:
+    attributes:
+      code:
+        identifier: true
+        range: string
+      system:
+        range: string
+      display:
+        range: string
+
+  DiagnosisCode:
+    attributes:
+      code:
+        identifier: true
+        range: string
+      system:
+        range: string
+      display:
+        range: string
+
+  Limitation:
+    attributes:
+      id:
+        identifier: true
+        range: string
+      description:
+        range: string
+      type:
+        range: string
+
+enums:
+  PolicyType:
+    permissible_values:
+      NCD:
+      LCD:
+      Article:
